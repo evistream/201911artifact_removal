@@ -1,0 +1,12 @@
+.DS_Store
+.idea
+.ipynb_checkpoints
+__pycache__
+
+localconfig.py
+config/
+data/
+fig/
+slide_fig/
+venv/
+spike_separation_artifacts/
