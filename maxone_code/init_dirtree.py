@@ -2,12 +2,14 @@ import os
 
 TEMP_DIRS=[
     'config/{}',
-    'data/{}/scan',
-    'data/{}/selectelectrode/raw',
-    'data/{}/selectelectrode/spike',
+    # 'data/{}/scan',
+    # 'data/{}/selectelectrode/raw',
+    # 'data/{}/selectelectrode/spike',
     'data/{}/raw',
-    'data/{}/spike',
-    'data/{}/dataset',
+    'data/{}/stimsig',
+    'data/{}/post-butterpass',
+    # 'data/{}/spike',
+    # 'data/{}/dataset',
 ]
 
 def makedirs_(path):
