@@ -19,8 +19,9 @@ class RawFile:
         print('sig shape:',self.sig.shape)
         print('record time: {}[s]'.format(self.sig.shape[1] // SAMPLING_FREQ))
         keys=self.elec2channel_table.keys()
-        print('record eles:size {}, {}'.format(len(keys),list(keys)))
-        print('record channels:' ,self.channel2elec_table.keys())
+        print('record eles_size: ', len(keys))
+        print('elec ids', list(keys))
+        print('channel ids', list(self.channel2elec_table.keys()))
 
     @property
     def sig(self):
@@ -121,14 +122,17 @@ class CfgFile:
 
 
 class Experiment:
-    def __init__(self,path):
+    def __init__(self,path,interval=None):
         self.rawfile = RawFile(path)
-        self.INTERVAL = 20000
+        if interval is None:
+            self.INTERVAL = 20000
+        else:
+            self.INTERVAL=interval
 
     def disp(self):
         self.rawfile.disp()
-        print('trail start frame ',self.trial_start_frames)
-        print('stim interval ',self.intervals)
+        print('trial start frame: ',self.trial_start_frames)
+        print('stim interval: ',self.intervals)
 
     @cached_property
     def trial_start_frames(self):

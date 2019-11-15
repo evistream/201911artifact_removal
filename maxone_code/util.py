@@ -1,3 +1,4 @@
+import math
 
 SIZE_CHANNEL=1024
 SAMPLING_FREQ=20000
@@ -25,3 +26,10 @@ def posi2elecid(y,x, is_uM=False):
         y = round(y /17.5)
     return x+y*220
 
+def distElecId(id1,id2, is_uM=False):
+    x1,y1=elecid2posi(id1)
+    x2,y2=elecid2posi(id2)
+    dist=math.sqrt((x1-x2)**2+(y1-y2)**2)
+    if is_uM is True:
+        dist *= 17.5
+    return dist
