@@ -6,6 +6,7 @@ RECORD_GAIN=512
 
 
 import requests
+import json
 
 def pushSlack(text='hello'):
     url = 'https://hooks.slack.com/services/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'
@@ -18,12 +19,12 @@ def elecid2posi(elecid, is_uM=False):
     if is_uM is True:
         x *= 17.5
         y *= 17.5
-    return y,x
+    return x,y
 
-def posi2elecid(y,x, is_uM=False):
+def posi2elecid(x,y, is_uM=False):
     if is_uM is True:
-        x = round(x /17.5)
-        y = round(y /17.5)
+        x = round(x / 17.5)
+        y = round(y / 17.5)
     return x+y*220
 
 def distElecId(id1,id2, is_uM=False):

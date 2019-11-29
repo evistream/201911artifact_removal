@@ -20,8 +20,8 @@ class RawFile:
         print('record time: {}[s]'.format(self.sig.shape[1] // SAMPLING_FREQ))
         keys=self.elec2channel_table.keys()
         print('record eles_size: ', len(keys))
-        print('elec ids', list(keys))
-        print('channel ids', list(self.channel2elec_table.keys()))
+        # print('elec ids', list(keys))
+        # print('channel ids', list(self.channel2elec_table.keys()))
 
     @property
     def sig(self):
@@ -53,6 +53,11 @@ class RawFile:
     def channel2elec(self,channel_id):
         return self.channel2elec_table[channel_id]
 
+    def channel2posi(self,channel_id):
+        eid = self.channel2elec_table[channel_id]
+        posi = elecid2posi(eid)
+        return posi
+
     @cached_property
     def elec2channel_table(self):
         table={}
@@ -65,6 +70,11 @@ class RawFile:
 
     def elec2channel(self,elec_id):
         return self.elec2channel_table[elec_id]
+
+    def elec2posi(self,elec_id):
+        posi = elecid2posi(elec_id)
+        return posi
+
 
     @cached_property
     def channelmap(self):

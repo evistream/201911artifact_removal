@@ -7,7 +7,7 @@ TEMP_DIRS=[
     # 'data/{}/selectelectrode/spike',
     'data/{}/raw',
     'data/{}/stimsig',
-    'data/{}/post-butterpass',
+    'data/{}/artifact_removal',
     # 'data/{}/spike',
     # 'data/{}/dataset',
 ]

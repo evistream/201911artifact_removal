@@ -1,0 +1,11 @@
+
+pip install numpy matplotlib h5py
+pip install sklearn
+pip install cached_property
+pip install parse
+pip install requests
+pip install jupyter
+pip install pathlib
+
+jupyter-notebook
+# open ./ipynb/artifact_removal.ipynb !
